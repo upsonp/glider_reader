@@ -21,7 +21,7 @@ Create a separate python instance called a virtual environment to not accidental
 ## Access the Django shell
 `python .\manage.py shell`
 
-## Create a mission
+## Some Django shell commands to play with
 ```
 # import the specific django model we're using
 from glider_reader import models
