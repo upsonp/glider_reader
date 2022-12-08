@@ -58,10 +58,16 @@ models.Glider.objects.all()
 # get all gliders from mission 59
 models.Mission.objects.get(mission_number=59).gliders.all()
 
-# get the Missions with a glider labeled 'SEA019' attached
+# get the Missions with a glider labeled 'SEA019' attached by querying the
+# gliders table
 gliders = models.Glider.objects.filter(label='SEA019')
 for glider in gliders:
  print(f"Mission: {glider.mission.mission_number} has a 'SEA019' Glider")
+
+# Another way to do it by querying the missions table
+missions = models.Mission.objects.filter(gliders__label='SEA019')
+for mission in missions:
+ print(f"Mission: {mission.mission_number} has a 'SEA019' Glider")
 
 # Get only missions that have a 'SEA015' glider
 for mission in models.Mission.objects.filter(gliders__label='SEA015'):
